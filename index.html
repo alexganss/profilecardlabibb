@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #172ceb, #cd62ff);
+            overflow: hidden;
+            position: relative;
+        }
+        .card {
+            background: #fff;
+            width: 320px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 2px solid #501496;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 30px rgba(33, 28, 92, 0.712);
+        }
+        .card img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+        }
+        .card h2 {
+            font-size: 22px;
+            color: #333;
+            font-weight: bold;
+        }
+        .card p {
+            color: #666;
+            font-size: 15px;
+        }
+        .card .role {
+            font-weight: bold;
+            font-size: 18px;
+            color: #a0f518;
+            border-bottom: 2px solid #0830e0;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .popup.show {
+            opacity: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .popup button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            border: none;
+            background: #e74c3c;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .popup button:hover {
+            background: #c0392b;
+        }
+        .light {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            box-shadow: 0 0 8px white;
+            border-radius: 50%;
+            animation: moveLights 4s linear infinite;
+        }
+        @keyframes moveLights {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-200px) translateX(-50px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="light" style="top: 80%; left: 20%;"></div>
+    <div class="light" style="top: 60%; left: 40%;"></div>
+    <div class="light" style="top: 90%; left: 70%;"></div>
+    
+    <div class="card">
+        <img src="b4e.jpeg" alt="Profile Picture">
+        <h2>I'm Labib</h2>
+        <p class="role">💻 Software & Hardware Engineering</p>
+        <p>Passionate about building innovative solutions that bridge software and hardware.</p>
+        <button class="btn" id="contactBtn">Contact Me</button>
+    </div>
+    
+    <div id="popup" class="popup">
+       
+        <a href="https://wa.me/+6289687182883" class="btn" target="+62 896-8718-2883">Chat with us on WhatsApp📞</a>
+        <p>📧 bibzxforever@gmail.com</p>
+        <button id="closeBtn">Close</button>
+    </div>
+
+    <script>
+        document.getElementById('contactBtn').addEventListener('click', function() {
+            document.getElementById('popup').classList.add('show');
+        });
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            document.getElementById('popup').classList.remove('show');
+        });
+    </script>
+</body>
+</html>
